@@ -5,10 +5,10 @@ using System.Net.WebSockets;
 
 Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
-//TestaArreyInt();
+//TestaArrayInt();
 //TesteBuscaPalavra();
 
-void TestaArreyInt()
+void TestaArrayInt()
 {
     int[] idades = new int[5];
     idades[0] = 30;

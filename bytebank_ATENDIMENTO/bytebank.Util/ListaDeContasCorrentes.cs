@@ -19,7 +19,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
 
         public void Adicionar(ContaCorrente item)
         {
-            Console.WriteLine($"Adcionando item na posição {_proximaPosicao}");
+            Console.WriteLine($"Adicionando item na posição {_proximaPosicao}");
             VerificarCapacidade(_proximaPosicao + 1);
             _itens[_proximaPosicao] = item;
             _proximaPosicao++;

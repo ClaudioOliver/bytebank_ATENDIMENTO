@@ -42,14 +42,14 @@ void TesteBuscaPalavra()
         arrayDePalavras[i] = Console.ReadLine()!;
     }
 
-    Console.WriteLine("Digite palavra a ser encontrata: ");
+    Console.WriteLine("Digite palavra a ser encontrada: ");
     var busca = Console.ReadLine()!;
 
     foreach (string palavra in arrayDePalavras)
     {
         if (palavra.Equals(busca))
         {
-            Console.WriteLine($"Palavra encontrata = {busca}.");
+            Console.WriteLine($"Palavra encontrada = {busca}.");
             break;
         }
     }
@@ -71,7 +71,7 @@ void TestaMediana(Array array)
 {
     if ((array == null) || (array.Length == 0))
     {
-        Console.WriteLine("Array para calculo da madiana esta vazio ou nulo.");
+        Console.WriteLine("Array para calculo da mediana está vazio ou nulo.");
     }
 
     double[] numerosOrdenados = (double[])array.Clone();
@@ -81,7 +81,7 @@ void TestaMediana(Array array)
     int tamanho = numerosOrdenados.Length;
     int meio = tamanho / 2;
     double mediana = (tamanho % 2 != 0) ? numerosOrdenados[meio] :
-                     (numerosOrdenados[meio - 1] + numerosOrdenados[meio]) / 2;
+                     (numerosOrdenados[meio - 1] + numerosOrdenados[meio]) / 2.0;
 
     Console.WriteLine($"Com base na amostra a mediana = {mediana}");
 }
@@ -104,7 +104,7 @@ void TesteArrayDeContasCorrentes()
     listaDeContas.Adicionar(new ContaCorrente(874, "4456668-B"));
     listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
 
-    Console.WriteLine("\nConta do Andre adcionada: ");
+    Console.WriteLine("\nConta do Andre adicionada: ");
     var contaDoAndre = new ContaCorrente(963, "4456668-B");
     listaDeContas.Adicionar(contaDoAndre);
     listaDeContas.ExibeLista();

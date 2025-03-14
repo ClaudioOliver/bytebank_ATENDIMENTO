@@ -38,7 +38,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
             }
             Console.WriteLine("Aumentando capacidade da lista!");
             ContaCorrente[] novoArray = new ContaCorrente[novoTamanho];
-            
+
             for (int i = 0; i < _itens.Length; i++)
             {
                 novoArray[i] = _itens[i];
@@ -46,10 +46,10 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
             _itens = novoArray;
         }
 
-        public void Remover (ContaCorrente conta)
+        public void Remover(ContaCorrente conta)
         {
             int indiceItem = -1;
-            for (int  i = 0;  i < _proximaPosicao;  i++)
+            for (int i = 0; i < _proximaPosicao; i++)
             {
                 ContaCorrente contaAtual = _itens[i];
                 if (contaAtual.Equals(conta))
@@ -72,13 +72,40 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
         {
             for (int i = 0; i < _itens.Length; i++)
             {
-                if (_itens[i] !=null)
+                if (_itens[i] != null)
                 {
                     var conta = _itens[i];
                     Console.WriteLine($" Indice [{i}] = Conta: {conta.Conta} - N° da Agencia: {conta.Numero_agencia}");
                 }
-                
+
             }
         }
+
+        public ContaCorrente RecuperarContaIndice(int indice)
+        {
+            if (indice < 0 || indice >= _proximaPosicao)
+            {
+                throw new ArgumentOutOfRangeException(nameof(indice));
+            }
+
+            return _itens[indice];
+        }
+
+        public int Tamanho
+        {
+            get
+            {
+                return _proximaPosicao;
+            }
+        }
+
+        public ContaCorrente this[int indice]
+        {
+            get
+            {
+                return RecuperarContaIndice(indice);
+            }
+        }
+
     }
 }

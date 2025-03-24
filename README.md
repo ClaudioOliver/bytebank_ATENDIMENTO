@@ -116,3 +116,32 @@ listaDeContas.Remover(contaDoAndre);
 #### Exibição Atualizada da Lista:
 listaDeContas.ExibeLista();
 - Exibe a lista de contas após a remoção.
+
+## 📘Implamentação de Classe Genericas
+![image](https://github.com/user-attachments/assets/93921ab7-9b48-46bb-97f8-178f83359478)
+
+### Descrição passo a passo:
+- A classe Generica<T> permite criar objetos que podem trabalhar com qualquer tipo de dado.
+- O método MostrarMensagem(T t) recebe um valor do tipo T e exibe esse valor no console.
+- O uso de generics torna o código mais reutilizável e flexível, evitando a necessidade de criar múltiplas versões da mesma classe para diferentes tipos de dados.
+Esse conceito é amplamente utilizado em estruturas como listas genéricas (List<T>), dicionários (Dictionary<TKey, TValue>) e em métodos genéricos. 🚀
+
+## 📘Implamentação de List
+- A implementação acima manipula listas genéricas do tipo List<ContaCorrente> e demonstra o uso de métodos da classe List<T>, como AddRange(), Reverse(), GetRange() e Clear().
+
+![image](https://github.com/user-attachments/assets/c457a134-f1e0-4aab-a93d-ce84e8340087)
+
+### Descrição passo a passo:
+- Duas listas de contas são criadas e preenchidas.
+- Os elementos da _listaDeContas3 são adicionados à _listaDeContas2.
+- A _listaDeContas2 é invertida e seus elementos são exibidos.
+- Um subconjunto (GetRange()) é extraído da _listaDeContas3 e impresso.
+- A _listaDeContas3 é esvaziada (Clear()).
+
+### Principais métodos utilizados:
+- AddRange(): adiciona todos os elementos de uma lista a outra.
+- Reverse(): inverte a ordem dos elementos da lista.
+- GetRange(início, quantidade): retorna uma sublista da lista original.
+- Clear(): remove todos os elementos da lista.
+
+

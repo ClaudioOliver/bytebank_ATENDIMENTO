@@ -209,7 +209,7 @@ void AtendimentoCliente()
             Console.WriteLine("===6 - Sair do Sistema      ===");
             Console.WriteLine("===============================");
             Console.WriteLine("\n\n");
-            Console.WriteLine("Digite a opção desejada: ");
+            Console.Write("Digite a opção desejada: ");
             try
             {
                 opcao = Console.ReadLine()![0];
@@ -287,32 +287,34 @@ void PesquisarContas()
     }
 }
 
-ContaCorrente ConsultaPorCPFTitular(string cpf)
+ContaCorrente ConsultaPorCPFTitular(string? cpf)
 {
-    ContaCorrente conta = null;
-    for (int i = 0; i < _listaDeContas.Count; i++)
-    {
-        if (_listaDeContas[i].Titular.Cpf.Equals(cpf))
-        {
-            conta = _listaDeContas[i];
-        }
-    }
+    //ContaCorrente conta = null;
+    //for (int i = 0; i < _listaDeContas.Count; i++)
+    //{
+    //    if (_listaDeContas[i].Titular.Cpf.Equals(cpf))
+    //    {
+    //        conta = _listaDeContas[i];
+    //    }
+    //}
+    //return conta;
 
-    return conta;
+    return _listaDeContas.Where(conta => conta.Titular.Cpf == cpf).FirstOrDefault();
 }
 
-ContaCorrente ConsultaPorNumeroConta(string numeroConta)
+ContaCorrente ConsultaPorNumeroConta(string? numeroConta)
 {
-    ContaCorrente conta = null;
-    for (int i = 0; i < _listaDeContas.Count; i++)
-    {
-        if (_listaDeContas[i].Conta.Equals(numeroConta))
-        {
-            conta = _listaDeContas[i];
-        }
-    }
+    //ContaCorrente conta = null;
+    //for (int i = 0; i < _listaDeContas.Count; i++)
+    //{
+    //    if (_listaDeContas[i].Conta.Equals(numeroConta))
+    //    {
+    //        conta = _listaDeContas[i];
+    //    }
+    //}
+    //return conta;
 
-    return conta;
+    return _listaDeContas.Where(conta => conta.Conta == numeroConta).FirstOrDefault();
 
 }
 
@@ -367,12 +369,13 @@ void ListarContas()
     }
     foreach (ContaCorrente item in _listaDeContas)
     {
-        Console.WriteLine("===  Dados da Conta  ===");
-        Console.WriteLine("Número da Conta : " + item.Conta);
-        Console.WriteLine("Saldo da Conta : " + item.Saldo);
-        Console.WriteLine("Titular da Conta: " + item.Titular.Nome);
-        Console.WriteLine("CPF do Titular  : " + item.Titular.Cpf);
-        Console.WriteLine("Profissão do Titular: " + item.Titular.Profissao);
+        //Console.WriteLine("===  Dados da Conta  ===");
+        //Console.WriteLine("Número da Conta : " + item.Conta);
+        //Console.WriteLine("Saldo da Conta : " + item.Saldo);
+        //Console.WriteLine("Titular da Conta: " + item.Titular.Nome);
+        //Console.WriteLine("CPF do Titular  : " + item.Titular.Cpf);
+        //Console.WriteLine("Profissão do Titular: " + item.Titular.Profissao);
+        Console.WriteLine(item.ToString());
         Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         Console.ReadKey();
     }

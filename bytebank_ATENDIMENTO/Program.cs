@@ -184,9 +184,9 @@ void TesteArrayDeContasCorrentes()
 
 List<ContaCorrente> _listaDeContas = new List<ContaCorrente>()
 {
-    new ContaCorrente(95, "123456-X"){Saldo=100,Titular = new Cliente{Cpf="11111",Nome ="Henrique"}},
-    new ContaCorrente(95, "951258-X"){Saldo=200,Titular = new Cliente{Cpf="22222",Nome ="Pedro"}},
-    new ContaCorrente(94, "987321-W"){Saldo=60,Titular = new Cliente{Cpf="33333",Nome ="Marisa"}}
+    new ContaCorrente(95, "123456-X"){Saldo=100,Titular = new Cliente{Cpf="11111",Nome ="Henrique",Profissao ="Desenvolvedor"}},
+    new ContaCorrente(95, "951258-X"){Saldo=200,Titular = new Cliente{Cpf="22222",Nome ="Pedro",Profissao ="Analista de Sistemas"}},
+    new ContaCorrente(94, "987321-W"){Saldo=60,Titular = new Cliente{Cpf="33333",Nome ="Marisa",Profissao ="Analista de Redes"}}
 };
 
 AtendimentoCliente();
@@ -260,8 +260,8 @@ void PesquisarContas()
     Console.WriteLine("===    PESQUISAR CONTAS     ===");
     Console.WriteLine("===============================");
     Console.WriteLine("\n");
-    Console.Write("Deseja pesquisar por (1) NUMERO DA CONTA ou (2)CPF TITULAR ? ");
-    switch (int.Parse(Console.ReadLine()))
+    Console.Write("Deseja pesquisar por (1) NUMERO DA CONTA ou (2)CPF TITULAR ou (3) N° AGÊNCIA: ");
+    switch (int.Parse(Console.ReadLine()!))
     {
         case 1:
             {
@@ -281,10 +281,44 @@ void PesquisarContas()
                 Console.ReadKey();
                 break;
             }
+        case 3:
+            {
+                Console.Write("Informe o N° da Agencia: ");
+                int _numeroAgencia = int.Parse(Console.ReadLine()!);
+                var contasPorAgencia = ConsultaPorAgencia(_numeroAgencia);
+                ExibirListaDeContas(contasPorAgencia);
+                Console.ReadKey();
+                break;
+            }
         default:
             Console.WriteLine("Opção não implementada.");
             break;
     }
+}
+
+void ExibirListaDeContas(List<ContaCorrente> contasPorAgencia)
+{
+    if (contasPorAgencia == null || !contasPorAgencia.Any())
+    {
+        Console.WriteLine("Nenhuma conta encontrada para esta agência...");
+        return;
+    }
+
+    Console.WriteLine("Contas encontradas: ");
+    foreach (var item in contasPorAgencia)
+    {
+        Console.WriteLine(item.ToString());
+    }
+
+}
+
+List<ContaCorrente> ConsultaPorAgencia(int numeroAgencia)
+{
+    var consulta = (
+        from conta in _listaDeContas
+        where conta.Numero_agencia == numeroAgencia
+        select conta).ToList();
+    return consulta;
 }
 
 ContaCorrente ConsultaPorCPFTitular(string? cpf)

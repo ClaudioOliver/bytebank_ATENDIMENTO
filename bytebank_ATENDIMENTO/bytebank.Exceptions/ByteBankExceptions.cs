@@ -16,5 +16,6 @@ namespace bytebank_ATENDIMENTO.bytebank.Exceptions
 		protected ByteBankException(
 		  System.Runtime.Serialization.SerializationInfo info,
 		  System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+		
 	}
 }

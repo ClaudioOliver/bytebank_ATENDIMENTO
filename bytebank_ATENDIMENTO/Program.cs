@@ -6,7 +6,7 @@ using System.Collections;
 using System.ComponentModel.Design;
 using System.Net.WebSockets;
 
-Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
+Console.WriteLine("Boas Vindas ao ByteBank, Atendimento. Teste");
 
 #region Exemplos Arrays em C#
 //TestaArrayInt();
